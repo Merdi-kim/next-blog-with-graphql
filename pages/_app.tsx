@@ -1,8 +1,15 @@
-import '../styles/globals.css'
+import React, { useEffect, useState } from 'react'
+import { Header } from '../components'
 import type { AppProps } from 'next/app'
+import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return(
+    <>
+      <Header/>
+      <Component {...pageProps} />
+    </>
+  ) 
 }
 
 export default MyApp
