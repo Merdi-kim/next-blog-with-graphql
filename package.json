@@ -6,6 +6,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@badrap/bar-of-progress": "^0.2.2",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "html-react-parser": "^3.0.7",
@@ -13,7 +15,6 @@
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-multi-carousel": "^2.8.2",
     "sass": "^1.57.1"
   },
   "devDependencies": {

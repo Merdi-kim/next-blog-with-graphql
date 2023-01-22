@@ -9,7 +9,7 @@ const Home: NextPage = ({posts}:InferGetStaticPropsType<typeof getStaticProps>) 
   return (
     <div className="w-full mb-8 px-6 sm:px-16">
       <Head>
-        <title>merkim blog</title>
+        <title>Merkim blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-8'>
