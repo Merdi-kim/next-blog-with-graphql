@@ -31,6 +31,6 @@
     "typescript": "4.9.4"
   },
   "lint-staged": {
-    "*.@(ts|tsx)": ["prettier --write --ignore-unknown", "git add ."]
+    "*.@(ts|tsx)": ["prettier --write .", "git add ."]
   }
 }
