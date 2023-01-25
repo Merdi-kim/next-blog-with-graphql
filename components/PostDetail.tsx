@@ -3,8 +3,8 @@ import { CopyBlock, dracula } from 'react-code-blocks';
 import React from 'react';
 import { IPostDetailProps } from '../types';
 
-function PostDetails({ post }: IPostDetailProps) {
-  const getContentFragment = (index, text, obj, type) => {
+function PostDetails({ post }: IPostDetailProps | any) {
+  const getContentFragment = (index, text, obj, type?) => {
     let modifiedText = text;
 
     if (obj) {

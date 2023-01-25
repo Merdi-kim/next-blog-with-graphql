@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getPosts, getPostDetails } from '../../services';
 import { PostDetail, Categories, PostWidget, Author } from '../../components';
 import { IPostDetailProps } from '../../types';
