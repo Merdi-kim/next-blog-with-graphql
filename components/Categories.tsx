@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { getCategories } from '../services';
+import { getCategories } from '../services/graphql';
 import { ICategoryProps } from '../types';
 
 function Categories() {

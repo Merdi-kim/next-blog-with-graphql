@@ -37,7 +37,13 @@ export interface IPostDetailProps extends IPost {
 
 /***** Author props *****/
 export interface IAuthorProps {
-  author: {};
+  author: {
+    id: string;
+    name: string;
+    photo: {
+      url: string;
+    };
+  };
 }
 
 /***** Category props *****/

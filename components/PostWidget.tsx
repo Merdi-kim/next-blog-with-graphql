@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
-import { getRecentPosts } from '../services';
+import { getRecentPosts } from '../services/graphql';
 import { IPost } from '../types';
 
 function PostWidget() {

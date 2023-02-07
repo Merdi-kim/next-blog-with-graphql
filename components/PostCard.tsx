@@ -28,8 +28,10 @@ function PostCard({ post }: IPostCardProps) {
             />
             <p className="inline align-middle text-gray-700 ml-2 text-sm">{post.author.name}</p>
           </div>
-          <div className="font-medium text-gray-700 ">
-            <span>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
+          <div className="font-medium text-sm text-gray-700 ">
+            <span>
+              <i>{moment(post.createdAt).format('MMM DD, YYYY')}</i>
+            </span>
           </div>
         </div>
         <p className="text-center lg:text-sm text-gray-700 font-normal px-4 xl:px-18 mb-4 line-clamp-3">

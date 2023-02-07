@@ -1,8 +1,7 @@
 import React from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { getPosts, getPostDetails } from '../../services';
+import { getPosts, getPostDetails } from '../../services/graphql';
 import { PostDetail, Categories, PostWidget, Author } from '../../components';
-import { IPostDetailProps } from '../../types';
 
 function Post({ postDetails }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -10,7 +9,6 @@ function Post({ postDetails }: InferGetStaticPropsType<typeof getStaticProps>) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           <PostDetail post={postDetails} />
-          <Author author={postDetails.author} />
         </div>
         <div className="hidden lg:block lg:col-span-4">
           <div className="relative lg:sticky top-8">
@@ -19,6 +17,7 @@ function Post({ postDetails }: InferGetStaticPropsType<typeof getStaticProps>) {
           </div>
         </div>
       </div>
+      <Author author={postDetails.author} />
     </div>
   );
 }
