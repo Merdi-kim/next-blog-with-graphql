@@ -20,8 +20,11 @@ const Home: NextPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps
   return (
     <div className="w-full mb-8 px-6 sm:px-16">
       <Head>
-        <title>Merkim blog</title>
+        <title>Merdi kim blog</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Software engineering blog for all tips and tricks about web development" />
+        <meta name="keywords" content="Frontend development, backend development, software engineering" />
+        <meta name="author" content="Merdi Kim" />
       </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {postsToDisplay.length > 0 ? (
