@@ -18,12 +18,11 @@ export const getPosts = async () => {
               }
             }
             createdAt
-            slug
             title
             excerpt
+            slug
             categories {
               name
-              slug
             }
             featuredImage {
               url
@@ -51,7 +50,6 @@ export const getRecentPosts = async () => {
           url
         }
         createdAt
-        slug
       }
     }
   `;
@@ -65,7 +63,6 @@ export const getCategories = async () => {
     query GetCategories {
       categories {
         name
-        slug
       }
     }
   `;
@@ -88,12 +85,11 @@ export const getPostDetails = async (slug?: string | string[]) => {
           }
         }
         createdAt
-        slug
         title
         excerpt
+        slug
         categories {
           name
-          slug
         }
         featuredImage {
           url

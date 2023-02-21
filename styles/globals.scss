@@ -8,7 +8,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: rgb(245, 242, 242);
+  background-color: #002244;
+  color: white;
   font-family: 'Courier New', Courier, monospace; // to be changed
   &::before {
     content: '';

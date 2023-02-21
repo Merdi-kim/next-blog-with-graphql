@@ -18,11 +18,14 @@ const Home: NextPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps
   }, []);
 
   return (
-    <div className="w-full mb-8 px-6 sm:px-16">
+    <div className="w-full min-h-[calc(100vh-8rem)] pt-8 mb-8 px-6 sm:px-16 bg-blue text-white">
       <Head>
         <title>Merdi kim blog</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Software engineering blog for all tips and tricks about web development" />
+        <meta
+          name="description"
+          content="Software engineering blog for all tips and tricks about web development and blockchain development"
+        />
         <meta
           name="keywords"
           content="Frontend development, backend development, software engineering, web development"

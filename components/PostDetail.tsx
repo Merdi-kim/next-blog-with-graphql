@@ -54,7 +54,7 @@ function PostDetails({ post }: IPostDetailProps | any) {
   };
 
   return (
-    <div className="bg-white break-words shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
+    <div className="bg-white text-black break-words shadow-lg rounded-lg lg:p-8 pb-12 mt-8 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
         <img
           src={post.featuredImage.url}

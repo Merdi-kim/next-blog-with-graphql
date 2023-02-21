@@ -19,7 +19,7 @@ function Header() {
   const path = useRouter().pathname;
 
   return (
-    <div className="w-full mt-4 mb-8 px-6 sm:px-16">
+    <div className="w-full pt-4 px-6 sm:px-16 bg-white">
       <div
         className={`${
           path === '/' ? 'flex flex-col sm:flex-row sm:justify-between' : 'flex sm:flex-row justify-center'
@@ -45,7 +45,7 @@ function Header() {
               <li onClick={fetchPostsByCategory} data-category="cloud" className="link_header">
                 Cloud
               </li>
-              <li onClick={fetchPostsByCategory} data-category="Blockchain" className="link_header">
+              <li onClick={fetchPostsByCategory} data-category="blockchain" className="link_header">
                 Blockchain
               </li>
             </ul>

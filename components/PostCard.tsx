@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 function PostCard({ post }: IPostCardProps) {
   return (
-    <div className="flex flex-col md:flex-row  bg-white shadow-lg rounded-lg p-4 mb-8">
+    <div className="flex flex-col md:flex-row  bg-card shadow-lg rounded-lg p-4 mb-8">
       <div className="w-full h-44 md:w-[40%] relative overflow-hidden shadow-md">
         <img
           src={post.featuredImage.url}

@@ -6,6 +6,10 @@ module.exports = {
     colors: {
       'main-color': 'rgb(96 165 250)',
       'secondary-color': 'rgba(96, 165, 250, .5)',
+      blue: '#002244',
+      card: '#0d3b69',
+      white: '#FFFFFF',
+      black: '#050505',
     },
   },
   plugins: [require('@tailwindcss/line-clamp')],

@@ -13,9 +13,9 @@ export interface IPost {
     };
   };
   createdAt: string;
-  slug: string;
   title: string;
   excerpt: string;
+  slug: string;
   categories: [];
   featuredImage: {
     url: string;
@@ -48,6 +48,5 @@ export interface IAuthorProps {
 
 /***** Category props *****/
 export interface ICategoryProps {
-  slug: string;
   name: string;
 }
