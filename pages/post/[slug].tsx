@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getPosts, getPostDetails } from '../../services/graphql';
-import { PostDetail, Categories, PostWidget, Author } from '../../components';
+import { PostDetail, PostWidget, Author } from '../../components';
 import Head from 'next/head';
 
 function Post({ postDetails }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -24,7 +24,6 @@ function Post({ postDetails }: InferGetStaticPropsType<typeof getStaticProps>) {
         <div className="hidden lg:block lg:col-span-4">
           <div className="relative lg:sticky top-8">
             <PostWidget />
-            <Categories />
           </div>
         </div>
       </div>

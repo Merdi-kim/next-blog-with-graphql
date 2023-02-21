@@ -21,8 +21,8 @@ function Header() {
   return (
     <div className="w-full mt-4 mb-8 px-6 sm:px-16">
       <div
-        className={`flex flex-col sm:flex-row justify-center sm:${
-          path === '/' ? 'justify-between' : 'justify-ccenter'
+        className={`${
+          path === '/' ? 'flex flex-col sm:flex-row sm:justify-between' : 'flex sm:flex-row justify-center'
         } items-center border-b w-full border-secondary-color pb-2`}
       >
         <div className="mb-4">
