@@ -28,6 +28,11 @@ export interface IPostCardProps {
   post: IPost;
 }
 
+/***** postWidget card */
+export interface IPostWidgetProp {
+  title?: string;
+}
+
 /***** postDetail props *****/
 export interface IPostDetailProps extends IPost {
   content: {

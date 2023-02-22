@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { IPostNode } from '../types';
+import { IPostNode } from '../interfaces';
 
 export const allPosts = atom({
   key: 'posts',

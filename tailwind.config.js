@@ -9,6 +9,7 @@ module.exports = {
       blue: '#002244',
       card: '#0d3b69',
       white: '#FFFFFF',
+      fadingWhite: '#edf9fc',
       black: '#050505',
     },
   },

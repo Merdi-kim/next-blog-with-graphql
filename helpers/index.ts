@@ -1,4 +1,4 @@
-import { IPostNode } from '../types';
+import { IPostNode } from '../interfaces';
 
 export const fetchSpecificPosts = (posts: any, category: string) => {
   if (!category) return posts;

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
 import { getRecentPosts } from '../services/graphql';
-import { IPost } from '../types';
+import { IPost, IPostWidgetProp } from '../interfaces';
 
-function PostWidget() {
+function PostWidget({ title }: IPostWidgetProp) {
   const [recentPosts, setRecentPosts] = useState([]);
 
   const getPosts = async () => {
@@ -18,9 +18,12 @@ function PostWidget() {
 
   return (
     <div className="bg-card shadow-lg rounded-lg mt-8 p-8 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b border-secondary-color pb-4">Featured Posts</h3>
+      <h3 className="text-xl mb-8 font-semibold border-b border-secondary-color pb-4">
+        {' '}
+        {title ? title : 'Featured Posts'}{' '}
+      </h3>
       {recentPosts.map((post: IPost) => (
-        <div key={post.title} className="flex items-center w-full mb-4">
+        <div key={post.title} className="flex items-center w-full mb-4 shadow-lg py-4">
           <div className="w-16 h-16 flex-none">
             <img src={post.featuredImage.url} alt={post.title} className="align-middle h-full w-full rounded-[50%]" />
           </div>

@@ -40,7 +40,8 @@ body {
   cursor: pointer;
 }
 
-.link_header:hover {
+.link_header:hover,
+.active {
   color: rgb(96 165 250);
 }
 

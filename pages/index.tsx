@@ -6,7 +6,7 @@ import { PostCard, PostWidget } from '../components';
 import NoPostsPlaceholder from '../components/NoPostsPlaceholder';
 import { getPosts } from '../services/graphql';
 import { allPosts, specificPosts } from '../services/store';
-import { IPostNode } from '../types';
+import { IPostNode } from '../interfaces';
 
 const Home: NextPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [, setPosts] = useRecoilState(allPosts);

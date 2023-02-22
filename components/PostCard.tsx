@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { IPostCardProps } from '../types';
+import { IPostCardProps } from '../interfaces';
 import Link from 'next/link';
 
 function PostCard({ post }: IPostCardProps) {
@@ -39,7 +39,7 @@ function PostCard({ post }: IPostCardProps) {
         </p>
         <div className="text-right">
           <Link href={`post/${post.slug}`}>
-            <span className="transition duration-500 transform hover:-translate-y-1 inline-block text-main-color lg:text-sm xl:text-lg font-medium rounded-lg border-b-2 cursor-pointer hover:font-bold">
+            <span className="transition duration-500 transform hover:-translate-y-1 inline-block text-[#34bdeb] lg:text-sm xl:text-lg rounded-lg border-b-2 cursor-pointer font-bold">
               Read more
             </span>
           </Link>

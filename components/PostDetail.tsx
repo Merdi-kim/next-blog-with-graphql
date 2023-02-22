@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { CopyBlock, dracula } from 'react-code-blocks';
 import React from 'react';
-import { IPostDetailProps } from '../types';
+import { IPostDetailProps } from '../interfaces';
 
 function PostDetails({ post }: IPostDetailProps | any) {
   const getContentFragment = (index, text, obj, type?) => {
@@ -54,7 +54,7 @@ function PostDetails({ post }: IPostDetailProps | any) {
   };
 
   return (
-    <div className="bg-white text-black break-words shadow-lg rounded-lg lg:p-8 pb-12 mt-8 mb-8">
+    <div className="bg-fadingWhite text-black break-words shadow-lg rounded-lg lg:p-8 pb-12 mt-8 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
         <img
           src={post.featuredImage.url}

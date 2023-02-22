@@ -23,7 +23,7 @@ function Post({ postDetails }: InferGetStaticPropsType<typeof getStaticProps>) {
         </div>
         <div className="hidden lg:block lg:col-span-4">
           <div className="relative lg:sticky top-8">
-            <PostWidget />
+            <PostWidget title="Related Posts" />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { IAuthorProps } from '../types';
+import { IAuthorProps } from '../interfaces';
 
 function Author({ author }: IAuthorProps) {
   return (
