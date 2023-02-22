@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
+import type { NextPage, GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
@@ -8,7 +8,7 @@ import { getPosts } from '../services/graphql';
 import { allPosts, specificPosts } from '../services/store';
 import { IPostNode } from '../interfaces';
 
-const Home: NextPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home: NextPage = ({ posts }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [, setPosts] = useRecoilState(allPosts);
   const [postsToDisplay, setPostsToDisplay] = useRecoilState(specificPosts);
 
@@ -55,7 +55,7 @@ const Home: NextPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const posts: IPostNode[] = await getPosts();
   return {
     props: {

@@ -1,10 +1,10 @@
 import React from 'react';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { getPosts, getPostDetails } from '../../services/graphql';
 import { PostDetail, PostWidget, Author } from '../../components';
 import Head from 'next/head';
 
-function Post({ postDetails }: InferGetStaticPropsType<typeof getStaticProps>) {
+function Post({ postDetails }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="mx-auto px-6 sm:px-16 md:px-32 lg:px-16 mb-8">
       <Head>
@@ -32,22 +32,13 @@ function Post({ postDetails }: InferGetStaticPropsType<typeof getStaticProps>) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const postDetails = await getPostDetails(params?.slug || '');
 
   return {
     props: {
       postDetails,
     },
-  };
-};
-
-export const getStaticPaths = async () => {
-  const posts = await getPosts();
-
-  return {
-    paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: false,
   };
 };
 
