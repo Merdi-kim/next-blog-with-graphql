@@ -5,7 +5,7 @@ const gqlApi: string = process.env.NEXT_PUBLIC_GRAPH_CMS_ENDPOINT!;
 export const getPosts = async () => {
   const query = gql`
     query MyQuery {
-      postsConnection {
+      postsConnection(orderBy: createdAt_DESC) {
         edges {
           node {
             author {
@@ -41,13 +41,31 @@ export const getRecentPosts = async () => {
   const query = gql`
     query GetPostsDetails() {
       posts( 
-        orderBy: createdAt_ASC
-        last: 3
+        orderBy: createdAt_DESC
+        first: 3
       )
       {
         title
         slug
         featuredImage{
+          url
+        }
+        createdAt
+      }
+    }
+  `;
+
+  const result = await request(gqlApi, query);
+  return result.posts;
+};
+
+export const getFeaturedPosts = async () => {
+  const query = gql`
+    query GetFeaturedPosts {
+      posts(where: { featuredPost: true }, orderBy: createdAt_DESC, first: 3) {
+        title
+        slug
+        featuredImage {
           url
         }
         createdAt

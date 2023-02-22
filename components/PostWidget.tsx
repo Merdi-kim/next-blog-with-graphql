@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
-import { getRecentPosts } from '../services/graphql';
+import { getFeaturedPosts } from '../services/graphql';
 import { IPost, IPostWidgetProp } from '../interfaces';
 import Image from 'next/image';
 
@@ -9,7 +9,7 @@ function PostWidget({ title }: IPostWidgetProp) {
   const [recentPosts, setRecentPosts] = useState([]);
 
   const getPosts = async () => {
-    const posts = await getRecentPosts();
+    const posts = await getFeaturedPosts();
     setRecentPosts(posts);
   };
 
