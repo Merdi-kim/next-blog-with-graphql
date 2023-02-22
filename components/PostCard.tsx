@@ -2,14 +2,17 @@ import React from 'react';
 import moment from 'moment';
 import { IPostCardProps } from '../interfaces';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function PostCard({ post }: IPostCardProps) {
   return (
     <div className="flex flex-col md:flex-row  bg-card shadow-lg rounded-lg p-4 mb-8">
       <div className="w-full h-44 md:w-[40%] relative overflow-hidden shadow-md">
-        <img
+        <Image
           src={post.featuredImage.url}
           alt={post.title}
+          width={400}
+          height={400}
           className="object-top absolute h-full w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg"
         />
       </div>
@@ -19,11 +22,11 @@ function PostCard({ post }: IPostCardProps) {
         </h1>
         <div className="block lg:flex text-center items-center justify-center mb-2 w-full">
           <div className="flex items-center justify-center mt-2 md:mt-0 mb-0 w-full lg:w-auto mr-8">
-            <img
+            <Image
               src={post.author.photo.url}
-              height="30px"
-              width="30px"
               alt={post.author.name}
+              width={30}
+              height={30}
               className="align-middle rounded-[50%]"
             />
             <p className="inline align-middle text-gray-700 ml-2 text-sm">{post.author.name}</p>

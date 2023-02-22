@@ -3,6 +3,7 @@ import moment from 'moment';
 import Link from 'next/link';
 import { getRecentPosts } from '../services/graphql';
 import { IPost, IPostWidgetProp } from '../interfaces';
+import Image from 'next/image';
 
 function PostWidget({ title }: IPostWidgetProp) {
   const [recentPosts, setRecentPosts] = useState([]);
@@ -25,7 +26,13 @@ function PostWidget({ title }: IPostWidgetProp) {
       {recentPosts.map((post: IPost) => (
         <div key={post.title} className="flex items-center w-full mb-4 shadow-lg py-4">
           <div className="w-16 h-16 flex-none">
-            <img src={post.featuredImage.url} alt={post.title} className="align-middle h-full w-full rounded-[50%]" />
+            <Image
+              src={post.featuredImage.url}
+              alt={post.title}
+              width={400}
+              height={400}
+              className="align-middle h-full w-full rounded-[50%]"
+            />
           </div>
           <div className="flex-grow ml-4">
             <Link href={`/post/${post.title}`} className="text-md font-normal">

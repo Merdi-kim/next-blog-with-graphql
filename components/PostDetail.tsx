@@ -2,6 +2,7 @@ import moment from 'moment';
 import { CopyBlock, dracula } from 'react-code-blocks';
 import React from 'react';
 import { IPostDetailProps } from '../interfaces';
+import Image from 'next/image';
 
 function PostDetails({ post }: IPostDetailProps | any) {
   const getContentFragment = (index, text, obj, type?) => {
@@ -47,7 +48,7 @@ function PostDetails({ post }: IPostDetailProps | any) {
       case 'code-block':
         return <CopyBlock key={index} theme={dracula} text={modifiedText} language={'javascript'} />;
       case 'image':
-        return <img key={index} alt={obj.title} height={obj.height} width={obj.width} src={obj.src} />;
+        return <Image key={index} alt={obj.title} height={obj.height} width={obj.width} src={obj.src} />;
       default:
         return modifiedText;
     }
@@ -56,20 +57,22 @@ function PostDetails({ post }: IPostDetailProps | any) {
   return (
     <div className="bg-fadingWhite text-black break-words shadow-lg rounded-lg lg:p-8 pb-12 mt-8 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
-        <img
+        <Image
           src={post.featuredImage.url}
           alt={post.title}
+          width={400}
+          height={400}
           className="object-top h-[50vh] w-full overflow-hidden object-cover rounded-t-lg"
         />
       </div>
       <div className="px-4 lg:px-0">
         <div className="flex items-center mb-8 w-full">
           <div className="flex items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
-            <img
+            <Image
               src={post.author.photo.url}
-              height="30px"
-              width="30px"
               alt={post.author.name}
+              width={30}
+              height={30}
               className="align-middle rounded-[50%] border-blue-700 border-2"
             />
             <p className="inline align-middle text-gray-700 ml-2 text-lg">{post.author.name}</p>

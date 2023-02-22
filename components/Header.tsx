@@ -4,6 +4,7 @@ import { fetchSpecificPosts } from '../helpers';
 import { useRecoilState } from 'recoil';
 import { allPosts, specificPosts } from '../services/store';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 function Header() {
   const [posts] = useRecoilState(allPosts);
@@ -85,7 +86,7 @@ function Header() {
       >
         <div className="mb-4">
           <Link href={'/'}>
-            <img src="/name.png" alt="Merdi Kim" className="h-14 w-full sm:h-16 lg:h-24" />
+            <Image src="/name.png" width={400} height={400} alt="Merdi Kim" className="h-12 w-full sm:h-16 lg:h-24" />
           </Link>
         </div>
         {path === '/' && (
