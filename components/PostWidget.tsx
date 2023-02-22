@@ -35,7 +35,7 @@ function PostWidget({ title }: IPostWidgetProp) {
             />
           </div>
           <div className="flex-grow ml-4">
-            <Link href={`/post/${post.title}`} className="text-md font-normal">
+            <Link href={`/post/${post.slug}`} className="text-md font-normal">
               {' '}
               {post.title}
             </Link>

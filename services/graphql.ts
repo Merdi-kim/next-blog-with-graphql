@@ -46,6 +46,7 @@ export const getRecentPosts = async () => {
       )
       {
         title
+        slug
         featuredImage{
           url
         }

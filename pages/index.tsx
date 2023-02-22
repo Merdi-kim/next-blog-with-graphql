@@ -14,6 +14,7 @@ const Home: NextPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps
 
   useEffect(() => {
     setPosts(posts);
+    console.log(posts);
     setPostsToDisplay(posts);
   }, []);
 
