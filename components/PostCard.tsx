@@ -4,13 +4,11 @@ import { IPostCardProps } from '../interfaces';
 import Link from 'next/link';
 import Image from 'next/image';
 
+///md:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'}
+
 function PostCard({ index, post }: IPostCardProps) {
   return (
-    <div
-      className={`flex flex-col md:${
-        index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'
-      }  bg-card shadow-lg rounded-lg p-4 mb-8`}
-    >
+    <div className={`flex flex-col md:flex-row bg-card shadow-lg rounded-lg p-4 mb-8`}>
       <div className="w-full h-44 md:w-[40%] relative overflow-hidden shadow-md">
         <Image
           src={post.featuredImage.url}
