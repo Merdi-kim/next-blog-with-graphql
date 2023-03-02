@@ -33,7 +33,7 @@ export const getPosts = async () => {
     }
   `;
 
-  const result = await request(gqlApi, query);
+  const result: any = await request(gqlApi, query);
   return result.postsConnection.edges;
 };
 
@@ -55,7 +55,7 @@ export const getRecentPosts = async () => {
     }
   `;
 
-  const result = await request(gqlApi, query);
+  const result: any = await request(gqlApi, query);
   return result.posts;
 };
 
@@ -73,7 +73,7 @@ export const getFeaturedPosts = async () => {
     }
   `;
 
-  const result = await request(gqlApi, query);
+  const result: any = await request(gqlApi, query);
   return result.posts;
 };
 
@@ -86,7 +86,7 @@ export const getCategories = async () => {
     }
   `;
 
-  const result = await request(gqlApi, query);
+  const result: any = await request(gqlApi, query);
   return result.categories;
 };
 
@@ -120,6 +120,6 @@ export const getPostDetails = async (slug?: string | string[]) => {
     }
   `;
 
-  const result = await request(gqlApi, query, { slug });
+  const result: any = await request(gqlApi, query, { slug });
   return result.post;
 };
