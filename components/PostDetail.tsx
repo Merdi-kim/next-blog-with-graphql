@@ -3,6 +3,7 @@ import { CopyBlock, dracula } from 'react-code-blocks';
 import React from 'react';
 import { IPostDetailProps } from '../interfaces';
 import Image from 'next/image';
+import CodeDisplayer from './CodeDisplayer';
 
 function PostDetails({ post }: IPostDetailProps | any) {
   const getContentFragment = (index, text, obj, type?) => {
@@ -29,26 +30,31 @@ function PostDetails({ post }: IPostDetailProps | any) {
             ))}
           </h3>
         );
-      case 'paragraph':
-        return (
-          <p key={index} className="mb-8">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </p>
-        );
+
       case 'heading-four':
         return (
-          <h4 key={index} className="text-md font-semibold mb-4">
+          <h4 key={index} className="text-lg font-semibold mb-4">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </h4>
         );
+
+      case 'paragraph':
+        return (
+          <p key={index} className="mb-2 text-md">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </p>
+        );
+
       case 'code-block':
-        return <CopyBlock key={index} theme={dracula} text={modifiedText} language={'javascript'} />;
+        return <CodeDisplayer key={index} code={modifiedText} />;
+
       case 'image':
         return <Image key={index} alt={obj.title} height={obj.height} width={obj.width} src={obj.src} />;
+
       default:
         return modifiedText;
     }

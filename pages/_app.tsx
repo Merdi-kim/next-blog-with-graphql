@@ -3,8 +3,9 @@ import { Header } from '../components';
 import type { AppProps } from 'next/app';
 import ProgressBar from '@badrap/bar-of-progress';
 import Router from 'next/router';
-import '../styles/globals.scss';
 import { RecoilRoot } from 'recoil';
+import '../styles/globals.scss';
+import '../node_modules/highlight.js/styles/dracula.css';
 
 const progress = new ProgressBar({
   size: 4,

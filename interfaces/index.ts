@@ -25,6 +25,7 @@ export interface IPost {
 /***** postCard props */
 
 export interface IPostCardProps {
+  index: number;
   post: IPost;
 }
 

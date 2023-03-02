@@ -14,7 +14,6 @@ const Home: NextPage = ({ posts }: InferGetServerSidePropsType<typeof getServerS
 
   useEffect(() => {
     setPosts(posts);
-    console.log(posts);
     setPostsToDisplay(posts);
   }, []);
 
@@ -36,8 +35,8 @@ const Home: NextPage = ({ posts }: InferGetServerSidePropsType<typeof getServerS
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {postsToDisplay.length > 0 ? (
           <div className="lg:col-span-8 col-span-1">
-            {postsToDisplay.map((post: IPostNode) => (
-              <PostCard key={post.node.title} post={post.node} />
+            {postsToDisplay.map((post: IPostNode, index: number) => (
+              <PostCard key={post.node.title} index={index} post={post.node} />
             ))}
           </div>
         ) : (

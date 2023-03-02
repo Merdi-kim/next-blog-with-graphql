@@ -8,7 +8,7 @@ function Post({ postDetails }: InferGetServerSidePropsType<typeof getServerSideP
   return (
     <div className="mx-auto px-6 sm:px-16 md:px-32 lg:px-16 mb-8">
       <Head>
-        <title>Merdi kim blog</title>
+        <title>{postDetails.title}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={`${postDetails.excerpt}`} />
         <meta
