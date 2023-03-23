@@ -73,7 +73,11 @@ function PostDetails({ post }: IPostDetailProps | any) {
       </div>
       <div className="px-4 lg:px-0">
         <div className="flex items-center mb-8 w-full">
-          <div className="flex items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
+          <a
+            href="https://www.merdikim.com/"
+            target={'_blank'}
+            className="flex items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8"
+          >
             <Image
               src={post.author.photo.url}
               alt={post.author.name}
@@ -82,7 +86,7 @@ function PostDetails({ post }: IPostDetailProps | any) {
               className="align-middle rounded-[50%] border-blue-700 border-2"
             />
             <p className="inline align-middle text-gray-700 ml-2 text-lg">{post.author.name}</p>
-          </div>
+          </a>
           <div className="font-medium text-gray-700 ">
             <span>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
           </div>
