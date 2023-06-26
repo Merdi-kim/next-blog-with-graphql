@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { CopyBlock, dracula } from 'react-code-blocks';
 import React from 'react';
 import { IPostDetailProps } from '../interfaces';
 import Image from 'next/image';
@@ -53,7 +52,16 @@ function PostDetails({ post }: IPostDetailProps | any) {
         return <CodeDisplayer key={index} code={modifiedText} />;
 
       case 'image':
-        return <Image key={index} alt={obj.title} height={obj.height} width={obj.width} src={obj.src} />;
+        return (
+          <Image
+            key={index}
+            alt={obj.title}
+            height={obj.height}
+            width={obj.width}
+            src={obj.src}
+            className="rounded-lg"
+          />
+        );
 
       default:
         return modifiedText;
@@ -61,14 +69,14 @@ function PostDetails({ post }: IPostDetailProps | any) {
   };
 
   return (
-    <div className="bg-fadingWhite text-black break-words shadow-lg rounded-lg lg:p-8 pb-12 mt-8 mb-8">
+    <div className="bg-fadingWhite bg-gray-400 bg-opacity-20 break-words shadow-lg rounded-lg lg:p-8 pb-12 mt-8 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
         <Image
           src={post.featuredImage.url}
           alt={post.title}
           width={400}
           height={400}
-          className="object-top h-[50vh] w-full overflow-hidden object-cover rounded-t-lg"
+          className="object-top h-56 md:h-[50vh] w-full overflow-hidden object-cover rounded-t-lg"
         />
       </div>
       <div className="px-4 lg:px-0">
@@ -79,15 +87,15 @@ function PostDetails({ post }: IPostDetailProps | any) {
             className="flex items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8"
           >
             <Image
-              src={post.author.photo.url}
+              src={'/profile.JPG'}
               alt={post.author.name}
               width={30}
               height={30}
-              className="align-middle rounded-[50%] border-blue-700 border-2"
+              className="align-middle h-7 w-7 object-cover rounded-[50%] "
             />
-            <p className="inline align-middle text-gray-700 ml-2 text-lg">{post.author.name}</p>
+            <p className="inline align-middle text-gray-400 ml-2 text-lg">{post.author.name}</p>
           </a>
-          <div className="font-medium text-gray-700 ">
+          <div className="font-medium text-gray-400 ">
             <span>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
           </div>
         </div>

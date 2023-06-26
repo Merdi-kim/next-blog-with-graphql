@@ -1,22 +1,12 @@
 import type { NextPage, GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import Typewriter from 'typewriter-effect';
 import { PostCard, PostWidget } from '../components';
 import NoPostsPlaceholder from '../components/NoPostsPlaceholder';
 import { getPosts } from '../services/graphql';
-import { allPosts, specificPosts } from '../services/store';
 import { IPostNode } from '../interfaces';
 
 const Home: NextPage = ({ posts }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const [, setPosts] = useRecoilState(allPosts);
-  const [postsToDisplay, setPostsToDisplay] = useRecoilState(specificPosts);
-
-  useEffect(() => {
-    setPosts(posts);
-    setPostsToDisplay(posts);
-  }, []);
-
   return (
     <div className="w-full min-h-[calc(100vh-8rem)] pt-8 mb-8 px-6 sm:px-16 bg-blue text-white">
       <Head>
@@ -32,10 +22,21 @@ const Home: NextPage = ({ posts }: InferGetServerSidePropsType<typeof getServerS
         />
         <meta name="author" content="Merdi Kim" />
       </Head>
+      <div className="w-full mb-10 h-32 md:h-44 flex items-center justify-center">
+        <p className="text-2xl lg:text-4xl font-bold text-center">
+          <Typewriter
+            options={{
+              strings: ['Blockchain, Cloud, Software engineering, ...'],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </p>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {postsToDisplay.length > 0 ? (
+        {posts.length > 0 ? (
           <div className="lg:col-span-8 col-span-1">
-            {postsToDisplay.map((post: IPostNode, index: number) => (
+            {posts.map((post: IPostNode, index: number) => (
               <PostCard key={post.node.title} index={index} post={post.node} />
             ))}
           </div>
