@@ -1,71 +1,26 @@
 import moment from 'moment';
 import React from 'react';
+import { RichText } from '@graphcms/rich-text-react-renderer';
 import { IPostDetailProps } from '../interfaces';
 import Image from 'next/image';
 import CodeDisplayer from './CodeDisplayer';
 
 function PostDetails({ post }: IPostDetailProps | any) {
-  const getContentFragment = (index, text, obj, type?) => {
-    let modifiedText = text;
-
-    if (obj) {
-      if (obj.bold) {
-        modifiedText = <b key={index}>{text}</b>;
-      }
-      if (obj.italic) {
-        modifiedText = <em key={index}>{text}</em>;
-      }
-      if (obj.underline) {
-        modifiedText = <u key={index}>{text}</u>;
-      }
-    }
-
-    switch (type) {
-      case 'heading-three':
-        return (
-          <h3 key={index} className="text-xl font-semibold mb-4">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h3>
-        );
-
-      case 'heading-four':
-        return (
-          <h4 key={index} className="text-lg font-semibold mb-4">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h4>
-        );
-
-      case 'paragraph':
-        return (
-          <p key={index} className="mb-2 text-md">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </p>
-        );
-
-      case 'code-block':
-        return <CodeDisplayer key={index} code={modifiedText} />;
-
-      case 'image':
-        return (
-          <Image
-            key={index}
-            alt={obj.title}
-            height={obj.height}
-            width={obj.width}
-            src={obj.src}
-            className="rounded-lg"
-          />
-        );
-
-      default:
-        return modifiedText;
-    }
+  const renderers = {
+    a: ({ children }) => <a className="text-white">{children}</a>,
+    h1: ({ children }) => <h1 className="text-3xl font-semibold mb-40">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-2xl font-semibold mb-40">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-xl font-semibold mb-40">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-base font-semibold mb-40">{children}</h4>,
+    h5: ({ children }) => <h5 className="text-sm font-semibold mb-40">{children}</h5>,
+    p: ({ children }) => <p className="my-6 text-md">{children}</p>,
+    italic: ({ children }) => <i>{children}</i>,
+    bold: ({ children }) => <strong>{children}</strong>,
+    code: ({ children }) => <div className="p-2 rounded-lg bg-gray-500">{children}</div>,
+    code_block: ({ children }) => <CodeDisplayer>{children}</CodeDisplayer>,
+    ol: ({ children }) => <ol>{children}</ol>,
+    ul: ({ children }) => <ul className="font-bold mb-4">{children}</ul>,
+    li: ({ children }) => <li>{children}</li>,
   };
 
   return (
@@ -100,10 +55,7 @@ function PostDetails({ post }: IPostDetailProps | any) {
           </div>
         </div>
         <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-        {post.content.raw.children.map((typeObj, index) => {
-          const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item));
-          return getContentFragment(index, children, typeObj, typeObj.type);
-        })}
+        <RichText content={post.content.raw} renderers={renderers} />;
       </div>
     </div>
   );
