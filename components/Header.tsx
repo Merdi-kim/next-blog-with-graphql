@@ -14,9 +14,11 @@ function Header() {
         <div className="w-auto">
           <ul className="h-full flex flex-col justify-between">
             <li className="font-bold text-slate-300 hover:text-blue-400 cursor-pointer text-base md:text-lg">
-              About me
+              <a href="https://about.merdikim.com" target={'_blank'}>
+                About me
+              </a>
             </li>
-            <li className="font-bold text-slate-300 hover:text-blue-400 cursor-pointer text-base md:text-lg">Talks</li>
+            {/*<li className="font-bold text-slate-300 hover:text-blue-400 cursor-pointer text-base md:text-lg">Talks</li>*/}
           </ul>
         </div>
       </div>
