@@ -5,7 +5,7 @@ import { IAuthorProps } from '../interfaces';
 function Author({ author }: IAuthorProps) {
   return (
     <a
-      href="https://www.about.merdikim.com"
+      href="https://about.merdikim.com"
       target={'_blank'}
       className="h-32 w-full flex items-center justify-center mb-12"
     >

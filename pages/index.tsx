@@ -10,11 +10,11 @@ const Home: NextPage = ({ posts }: InferGetServerSidePropsType<typeof getServerS
   return (
     <div className="w-full min-h-[calc(100vh-8rem)] pt-8 mb-8 px-6 sm:px-16 bg-blue text-white">
       <Head>
-        <title>Merdi kim blog</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Merdi kim | Software engineering blog</title>
+        <link rel="icon" href="/profile.ico" />
         <meta
           name="description"
-          content="Software engineering blog for all tips and tricks about web development and blockchain development"
+          content="Software engineering blog for all tips and tricks about software engineering and blockchain development"
         />
         <meta
           name="keywords"
