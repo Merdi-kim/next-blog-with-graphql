@@ -22,7 +22,8 @@
     "react-dom": "18.2.0",
     "react-highlight": "^0.15.0",
     "recoil": "^0.7.6",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
